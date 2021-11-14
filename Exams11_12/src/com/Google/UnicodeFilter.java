@@ -1,34 +1,35 @@
 package com.Google;
 
-public class UnicodeFilter implements Filter {
-    public String value;
+class UnicodeFilter implements Filter
+{
 
-    UnicodeFilter(String value){
-        this.value = value;
+    private String value;
+    public UnicodeFilter(String value)
+    {
+        this.value=value;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    @Override
+    public void doFilter() {
+        String b="";
+        for(int i=0;i<value.length();i++)
+        {
+            b+="\\u"+Integer.toHexString(value.indexOf(i));
+
+        }
+        value=b;
+        // TODO Auto-generated method stub
+
     }
 
     public String getValue() {
         return value;
     }
 
-    @Override
-    public void doFilter() {
-        char[] arr = value.toCharArray();
-
-        for(int i=0;i<value.length();i++){
-            Integer.toHexString(arr[i]);
-        }
-
-        String x;
-        for(int j=0; j<arr.length;j++){
-            x = "\\u"+ arr[j];
-            value += x;
-        }
-
-
+    public void setValue(String value) {
+        this.value = value;
     }
+
+
+
 }

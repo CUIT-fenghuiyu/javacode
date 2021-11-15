@@ -14,7 +14,7 @@ class UnicodeFilter implements Filter
         String b="";
         for(int i=0;i<value.length();i++)
         {
-            b+="\\u"+Integer.toHexString(value.indexOf(i));
+            b+="\\u"+Integer.toHexString(value.charAt(i));
 
         }
         value=b;

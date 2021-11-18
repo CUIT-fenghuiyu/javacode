@@ -1,6 +1,5 @@
 package com.Google;
 
-
 import java.io.*;
 import java.util.Objects;
 import java.util.Scanner;
@@ -21,23 +20,22 @@ public class Main {
         System.out.println(data.size());
     }
     //方法接口声明
-    public static List<Integer> readFromFile(File file){
+ public static List<Integer> readFromFile(File file){
+    	
+    	List<Integer> list = new ArrayList<Integer>();
+    	
+    	try {
+    	InputStream s = new FileInputStream(file);
+    	int size = s.available()
+	    	for(int i=0; i < size;i++) {
+	    		list.add(s.read());
+	    	}
 
-    	 List <Integer> list = new ArrayList<Integer>();
-    	     	
-    	     	try{
-    	     		InputStream f = new FileInputStream(file);
-    	     		int size= f.available();
-    	     		int i;
-    	         	for(i=0;i<size;i++) {
-    	         		list.add(f.read());
-    	         	}
-    	           
-    	     		}catch(IOException  e){
-    	     			e.printStackTrace();
-    	     		}
-    	 	return list;
+    	}catch(IOException e) {
+    		e.printStackTrace();
+    	}
     	
-    	
-    }
+    	return list;
+ }
+ 
 }

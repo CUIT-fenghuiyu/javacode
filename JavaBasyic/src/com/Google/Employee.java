@@ -1,25 +1,26 @@
 package com.Google;
 
-public class Employee {
-	private String name;
-	private double monthlySalary;
+public class Employee extends Person{
+	private int salary;
 	
-	Employee(String name, double monthlySalary){
-		this.name = name;
-		this.monthlySalary = monthlySalary;
+	void setSalary(int salary) {
+		this.salary = salary;
 	}
-	
-	String getName() {
-		return name;
-	}
-	void setMonthlysalary(double monthlySalary) {
-		this.monthlySalary = monthlySalary;
-	}
-	double getMonthlysalary() {
-		return monthlySalary;
+	int getSalary() {
+		return salary;
 	}
 	
-	double getAnnualSalary(int months) {
-		return monthlySalary * months;
+	Employee(String name, int age, int salary){
+		super(name,age);
+		if(salary<0) {
+			this.salary = 0;
+		}else {
+			this.salary = salary;
+		}
+	}
+	
+	@Override
+	int getAnnualIncome(int months){
+		return salary*months; 
 	}
 }

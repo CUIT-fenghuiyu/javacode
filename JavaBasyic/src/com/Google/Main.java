@@ -1,21 +1,31 @@
 package com.Google;
-import java.util.Scanner;
+
+import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws ClassNotFoundException {
-        Class<?> clazz1 = Class.forName("com.Google.Converter");
-        Class<?> clazz2 = Class.forName("com.Google.ForeignExchangeAccount");
-        System.out.println(clazz1.isInterface()+" "+clazz1.isAssignableFrom(clazz2));
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("请输入外汇账户的币种,汇率和开户存入的本币金额，中间用空格：");
-        String currency = scanner.next();
-        double exchangeRate = scanner.nextDouble();
-        double balance = scanner.nextDouble();
-        ForeignExchangeAccount account = new ForeignExchangeAccount(currency,exchangeRate,balance);
-        account.convert();
-        System.out.println(account.getCurrency()+"账户，汇率："+account.getExchangeRate()+"，本币余额："+account.getLocalCurrencyBalance()+"，外币余额："+account.getForeignCurrencyBalance());
-        account.setExchangeRate(0.71);
-        account.convert();
-        System.out.println(account.getCurrency()+"账户，汇率："+account.getExchangeRate()+"，本币余额："+account.getLocalCurrencyBalance()+"，外币余额："+account.getForeignCurrencyBalance());
+    public static void main(String[] args) {
+        List<Employee> empList = new ArrayList<>();
+        Scanner in = new Scanner(System.in);
+        Employee employee = null;
+        int num = Integer.parseInt(in.nextLine());
+        for (int i = 0; i < num; i++) {
+            String str = in.nextLine();
+            String[] data = str.split(",");
+            employee = new Employee(data[0], Integer.parseInt(data[1]), Integer.parseInt(data[2]));
+            empList.add(employee);
+        }
+        showResult(empList);
+        in.close();
+    } 
+
+    public static void showResult(List<Employee> empList) {
+        for (int i = 0; i < empList.size(); i++) {
+            Person emp = empList.get(i);
+            System.out.println("name:" + emp.getName() + ",age:" + emp.getAge() + ",income:" + emp.getAnnualIncome(12));
+        }
     }
 }
+
+//开始抽象类Person和Employee类的定义
+
+

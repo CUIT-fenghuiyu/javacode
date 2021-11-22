@@ -40,7 +40,11 @@ class Triangle extends Shape{
 	@Override
 	double getArea() {
 		double s = (side1 + side2 + side3)/2;
-		return Math.pow(s*(s-side1)*(s-side2)*(s-side3),0.5);
+		if(s <= 0) {
+			return 0.0;
+		}else {
+			return Math.pow(s*(s-side1)*(s-side2)*(s-side3),0.5);
+		}
 	}
 	
 	@Override

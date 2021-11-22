@@ -39,7 +39,7 @@ public class SimpleInteger {
 	}
 	
 	boolean equals(SimpleInteger o) {
-		if(o.equals(value)) {
+		if(o.value == value) {
 			return true;
 		}
 		return false;

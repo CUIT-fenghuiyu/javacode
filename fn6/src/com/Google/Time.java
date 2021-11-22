@@ -4,7 +4,6 @@ public class Time {
 	private int hour,minute,second;
 	
 	Time(){
-		
 		this.hour = 0;
 		this.minute = 0;
 		this.second = 0;

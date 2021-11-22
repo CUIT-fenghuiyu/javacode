@@ -9,7 +9,7 @@ class Stack {
 		
 		for(int i=0; i<s.length();i++) {
 			int j=0;
-			while(i <s.length() && s.charAt(i) != ' ' && s.charAt(i) != '?') {
+			while(i < s.length() && s.charAt(i) != ' ' && s.charAt(i) != '?') {
 				tmp += s.charAt(i);
 				i++;
 				j=1;
@@ -26,20 +26,20 @@ class Stack {
 	String pop() {
 		if(list.isEmpty()) {
 			return null;
-		}
+		}else {
 		String s = list.get(0);
 		list.remove(0);
 		
 		return s;
+		}
 	}
 	
 	String peek() {
 		if(list.isEmpty()) {
 			return null;
 		}
-		String s = list.get(0);
 		
-		return s;
+		return list.get(0);
 	}
 	
 	int getSize() {
@@ -47,14 +47,12 @@ class Stack {
 	}
 	
 	boolean empty() {
-		boolean a;
-		if(list.size() == 0) {
-			a=true;
+		if(list.isEmpty()) {
+			return true;
 		}
 		else {
-			a = false;
+			return false;
 		}
 		
-		return a;
 	}
 }
